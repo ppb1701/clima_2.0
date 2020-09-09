@@ -61,15 +61,12 @@ class WeatherModel {
     NetworkHelper networkHelper = NetworkHelper(
         '$openWeatherMapURL?units=imperial&lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey');
     var weatherData = await networkHelper.getData();
-    // var weatherDescription = weatherData['weather'][0]['description'];
-    // print(weatherDescription);
     return weatherData;
   }
 
   Future getZipcodeWeather(String zipCode, {String countryCode = 'us'}) async {
     var url =
         '$openWeatherMapURL?units=imperial&zip=$zipCode,$countryCode&appid=$apiKey';
-    print(url);
     NetworkHelper networkHelper = NetworkHelper(url);
     var weatherData = await networkHelper.getData();
     return weatherData;
