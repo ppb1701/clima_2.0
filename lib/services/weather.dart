@@ -25,16 +25,27 @@ class WeatherModel {
     }
   }
 
-  String getMessage(int temp) {
-    if (temp > 25) {
-      return 'It\'s 🍦 time';
-    } else if (temp > 20) {
-      return 'Time for shorts and 👕';
-    } else if (temp < 10) {
-      return 'You\'ll need 🧣 and 🧤';
-    } else {
-      return 'Bring a 🧥 just in case';
-    }
+  String degToCompass(num) {
+    dynamic val = ((num / 22.5) + 0.5);
+    List<String> arr = [
+      "N",
+      "NNE",
+      "NE",
+      "ENE",
+      "E",
+      "ESE",
+      "SE",
+      "SSE",
+      "S",
+      "SSW",
+      "SW",
+      "WSW",
+      "W",
+      "WNW",
+      "NW",
+      "NNW"
+    ];
+    return arr[(val % 16).round()];
   }
 
   Future getCityWeather(String cityName) async {
@@ -52,6 +63,15 @@ class WeatherModel {
     var weatherData = await networkHelper.getData();
     // var weatherDescription = weatherData['weather'][0]['description'];
     // print(weatherDescription);
+    return weatherData;
+  }
+
+  Future getZipcodeWeather(String zipCode, {String countryCode = 'us'}) async {
+    var url =
+        '$openWeatherMapURL?units=imperial&zip=$zipCode,$countryCode&appid=$apiKey';
+    print(url);
+    NetworkHelper networkHelper = NetworkHelper(url);
+    var weatherData = await networkHelper.getData();
     return weatherData;
   }
 }

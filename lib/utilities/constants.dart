@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 
 const kTempTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 100.0,
+  fontSize: 66.0,
 );
 
 const kMessageTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 60.0,
+  fontSize: 40.0,
+);
+
+const kDataTextStyle = TextStyle(
+  fontFamily: 'Spartan MB',
+  fontSize: 25.0,
 );
 
 const kButtonTextStyle = TextStyle(
@@ -16,7 +21,7 @@ const kButtonTextStyle = TextStyle(
 );
 
 const kConditionTextStyle = TextStyle(
-  fontSize: 100.0,
+  fontSize: 66.0,
 );
 
 const kInputTextStyle = InputDecoration(
@@ -26,7 +31,7 @@ const kInputTextStyle = InputDecoration(
       Icons.location_city,
       color: Colors.white,
     ),
-    hintText: 'ENTER CITY NAME',
+    hintText: 'ENTER CITY NAME OR ZIP CODE',
     hintStyle: TextStyle(
       color: Colors.grey,
     ),
@@ -36,3 +41,12 @@ const kInputTextStyle = InputDecoration(
       ),
       borderSide: BorderSide.none,
     ));
+
+const kBackgroundContainerBoxDecoration = BoxDecoration(
+  gradient: LinearGradient(
+    colors: [Colors.blueAccent, Colors.white38],
+    stops: [0.0, 9.0],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  ),
+);
