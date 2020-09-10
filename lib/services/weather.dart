@@ -26,32 +26,26 @@ class WeatherModel {
   }
 
   String degToCompass(num) {
-    dynamic val = ((num / 22.5) + 0.5);
+    // dynamic val = ((num / 22.5) + 0.5);
     List<String> arr = [
       "N",
-      "NNE",
       "NE",
-      "ENE",
       "E",
-      "ESE",
       "SE",
-      "SSE",
       "S",
-      "SSW",
       "SW",
-      "WSW",
       "W",
-      "WNW",
       "NW",
-      "NNW"
     ];
-    return arr[(val % 16).round()];
+    // print(val);
+    return arr[((num %8)+0.5).round()];
   }
 
   Future getCityWeather(String cityName) async {
     var url = '$openWeatherMapURL?q=$cityName&units=imperial&appid=$apiKey';
     NetworkHelper networkHelper = NetworkHelper(url);
     var weatherData = networkHelper.getData();
+    print(weatherData);
     return weatherData;
   }
 

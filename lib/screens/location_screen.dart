@@ -21,7 +21,7 @@ class LocationScreen extends StatefulWidget {
 class _LocationScreenState extends State<LocationScreen> {
   WeatherModel weather = WeatherModel();
   WeatherData weatherCurrent = WeatherData();
-dynamic location;
+  dynamic location;
   @override
   void initState() {
     super.initState();
@@ -29,7 +29,6 @@ dynamic location;
     setState(() {
       updateUI(widget.locationWeather);
     });
-
   }
 
   void updateUI(dynamic weatherData) {
